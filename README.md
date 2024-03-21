@@ -9,7 +9,9 @@ Information from modbus RTU energy meter to Wifi by ESPhome.
 - [3. Software](#3-software)
   - [3.1. Setup](#31-setup)
   - [3.2. Configuration](#32-configuration)
-  - [3.3. Build](#33-build)
+  - [3.3.](#33)
+- [Appendix](#appendix)
+  - [Hints](#hints)
 
 
 # 1. Description
@@ -34,4 +36,14 @@ To set up the WLAN connection, the parameters in *secrets.yaml* must be assigned
 
 ```bash
 foo@bar:~$ docker run [...] -it ghcr.io/esphome/esphome example.yaml compile
+```
+
+# Appendix
+
+## Hints
+
+YAML files could be validated by the following command
+
+```bash
+foo@bar:~$ docker run -it --rm -v "$(pwd):/workdir" ghcr.io/ffurrer2/yamllint my-file.yaml
 ```
