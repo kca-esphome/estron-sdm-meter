@@ -1,7 +1,7 @@
 ---
 
 esphome:
-  name: "testDevice"
+  name: "test_device"
   comment: "Test: Energy meter data from Modbus RTU to Wifi by ESPhome"
 #  on_boot:
 #    - lambda: |-
