@@ -1,16 +1,16 @@
 ---
 esphome:
-#Define device name
+# Define device name
   name: "testDevice"
-#Add comment to device
+# Add comment to device
   comment: "Test: Energy meter data from Modbus RTU to Wifi by ESPhome"
-#Could be uncommented to set a new password after update
+# Could be uncommented to set a new password after update
 #  on_boot:
 #    - lambda: |-
 #        id(my_ota).set_auth_password("new-passwd");
 
 
-#Setup RTU communication between ESP and Energy meter
+#S etup RTU communication between ESP and Energy meter
 uart:
   id: uart_modbus0
   tx_pin: 1
@@ -20,13 +20,13 @@ uart:
   stop_bits: 1
   parity: NONE
 
-#Setup Modbus RTU configuration at configured UART
+# Setup Modbus RTU configuration at configured UART
 modbus:
   id: modbus0
   uart_id: uart_modbus0
   send_wait_time: 250ms
 
-#Setup Modbus RTU devices (energy meter)
+# Setup Modbus RTU devices (energy meter)
 modbus_controller:
   - id: modbus_controller_pm1
     address: 1
