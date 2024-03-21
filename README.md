@@ -30,7 +30,7 @@ The example device configuration file is *example.yaml*.
 
 To set up the WLAN connection, the parameters in *secrets.yaml* must be assigned the correct values. 
 
-## 3.3. Build
+## 3.3. 
 
 ```bash
 foo@bar:~$ docker run [...] -it ghcr.io/esphome/esphome example.yaml compile

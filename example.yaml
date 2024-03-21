@@ -10,15 +10,6 @@ esphome:
 #        id(my_ota).set_auth_password("new-passwd");
 
 
-## Logger
-logger:
-## Define logging level; NONE, ERROR, WARN, INFO, DEBUG (default), VERBOSE, VERY_VERBOSE 
-  level: INFO
-## Defaults to 115200. Set to 0 to disable logging via UART
-  baud_rate: 0
-  id: log_default
-
-
 ## Setup RTU communication between ESP and Energy meter 
 uart:
   id: uart_modbus0
