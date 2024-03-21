@@ -35,7 +35,10 @@ To set up the WLAN connection, the parameters in *secrets.yaml* must be assigned
 ## 3.3. 
 
 ```bash
-foo@bar:~$ docker run [...] -it ghcr.io/esphome/esphome example.yaml compile
+foo@bar:~$ docker run --rm -it ghcr.io/esphome/esphome -v ${PWD}:/config -v /etc/localtime:/etc/localtime:ro compile example.yaml
+```
+```bash
+foo@bar:~$ podman run --rm -it ghcr.io/esphome/esphome -v ${PWD}:/config:z -v /etc/localtime:/etc/localtime:ro compile example.yaml
 ```
 
 # Appendix
@@ -45,5 +48,8 @@ foo@bar:~$ docker run [...] -it ghcr.io/esphome/esphome example.yaml compile
 YAML files could be validated by the following command
 
 ```bash
-foo@bar:~$ docker run -it --rm -v "$(pwd):/workdir" ghcr.io/ffurrer2/yamllint my-file.yaml
+foo@bar:~$ docker run --rm -it -v $PWD:/workdir ghcr.io/ffurrer2/yamllint example.yaml
+```
+```bash
+foo@bar:~$ podman run --rm -it -v $PWD:/workdir:z ghcr.io/ffurrer2/yamllint example.yaml
 ```

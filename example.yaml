@@ -42,7 +42,7 @@ modbus_controller:
 
 packages:
   device_default: !include
-    file: "./devices/8266_nodemcuv2.yaml"
+    file: "./Devices/8266_nodemcuv2.yaml"
 
   modbus_pm1_sdm72dm_v2_phases: !include
     file: "./SDM72DM-V2/3phase.yaml"
