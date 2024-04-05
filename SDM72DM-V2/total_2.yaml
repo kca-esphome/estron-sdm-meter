@@ -23,7 +23,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 3
-    unit_of_measurement: ${unit_power_active_2}
+    unit_of_measurement: ${unit_power_active}
     device_class: "power"
     state_class: "measurement"
   - platform: modbus_controller
@@ -34,7 +34,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 3
-    unit_of_measurement: ${unit_power_apparent_2}
+    unit_of_measurement: ${unit_power_apparent}
     device_class: "apparent_power"
     state_class: "measurement"
   - platform: modbus_controller
@@ -45,7 +45,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 3
-    unit_of_measurement: ${unit_power_reactive_2}
+    unit_of_measurement: ${unit_power_reactive}
     device_class: "reactive_power"
     state_class: "measurement"
   - platform: modbus_controller
@@ -53,7 +53,7 @@ sensor:
     id: ${power_meter_id_2}_system_f
     name: "${power_meter_name_2}-f"
     address: 0x0046
-    unit_of_measurement: ${unit_frequency_2}
+    unit_of_measurement: ${unit_frequency}
     device_class: "frequency"
     state_class: "measurement"
     register_type: read
@@ -68,7 +68,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 1
-    unit_of_measurement: ${unit_energy_2}
+    unit_of_measurement: ${unit_energy}
     device_class: "energy"
     state_class: "total_increasing"
     filters:
@@ -81,7 +81,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 1
-    unit_of_measurement: ${unit_energy_2}
+    unit_of_measurement: ${unit_energy}
     device_class: "energy"
     state_class: "total_increasing"
     filters:
@@ -95,7 +95,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 1
-    unit_of_measurement: ${unit_energy_2}
+    unit_of_measurement: ${unit_energy}
     device_class: "energy"
     state_class: "total_increasing"
     filters:
@@ -108,7 +108,7 @@ sensor:
     register_type: read
     value_type: FP32
     accuracy_decimals: 1
-    unit_of_measurement: ${unit_energy_2}
+    unit_of_measurement: ${unit_energy}
     device_class: "energy"
     state_class: "total_increasing"
     filters:
