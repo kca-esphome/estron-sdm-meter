@@ -12,7 +12,6 @@
 
 <<: !include ../units.yaml 
 
-
 sensor:
 # ---------------------------- Total 3-phase ---------------------------
   - platform: modbus_controller
