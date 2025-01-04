@@ -4,5 +4,5 @@ substitutions:
   unit_frequency: "Hz"
   unit_power_apparent: "VA"
   unit_power_active: "W"
-  unit_power_reactive: "var"
+  unit_power_reactive: "W"
   unit_energy: "Wh"

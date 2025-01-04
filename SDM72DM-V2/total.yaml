@@ -8,7 +8,11 @@
 #   - power_meter_id
 #   - power_meter_name
 #
-
+#VARS::
+substitutions:
+  modbus_controller_id: modbus_controller_id
+  power_meter_id: power_meter_id
+  power_meter_name: power_meter_name
 
 <<: !include ../units.yaml 
 
