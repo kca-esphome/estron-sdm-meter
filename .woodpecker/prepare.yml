@@ -1,0 +1,17 @@
+when:
+  - branch: [main]
+    event: [push, manual]
+
+steps:
+  prepare-build-conf:
+    image: ubuntu:latest
+    commands:
+      - for i in {1..9}; do sed -e "s|<idx>|$i|g" .woodpecker/build.tmp > .woodpecker/build_${i}.yaml; done
+      - ls -la .woodpecker/*.yaml
+      - cat .woodpecker/build_1.yaml
+
+  push-build-branch:
+    image: appleboy/drone-git-push
+    settings:
+      remote_name: origin
+      branch: build

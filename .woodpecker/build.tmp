@@ -1,0 +1,19 @@
+when:
+  - branch: [build]
+    event: [push]
+
+steps:
+  sed_yaml:
+    image: ubuntu:latest
+    commands:
+      - for f in SDM72DM-V2/*.yml; do sed -i -e "s|<i>|<idx>|g" $f; mv $f ${f%%.*}<idx>.yaml; done
+
+  push:
+    image: appleboy/drone-git-push
+    settings:
+      remote_name: origin
+      branch: device<idx>
+      commit: true
+      commit_message: "${CI_PIPELINE_URL} trigged by ${CI_PIPELINE_EVENT}: push branch Device <idx>"
+      author_name: "Woodpecker-CI"
+      author_email: "devops@none.org"

@@ -4,21 +4,25 @@
 #
 # vars:
 #
-#   - modbus_controller_id
-#   - power_meter_id
-#   - power_meter_name
+#   - d<i>_modbus_controller_id
+#   - d<i>_power_meter_id
+#   - d<i>_power_meter_name
 #
+#VARS::
+substitutions:
+  modbus_controller_id: d<i>_modbus_controller_id
+  power_meter_id: d<i>_power_meter_id
+  power_meter_name: d<i>_power_meter_name
 
-
-<<: !include ../units.yaml 
+<<: !include ../units_estron.yaml 
 
 
 sensor:
 # ---------------------------- Phase voltage LN ------------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_L1N
-    name: ${power_meter_name_1}-L1N
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_L1N
+    name: ${d<i>_power_meter_name}-L1N
     address: 0x0000
     unit_of_measurement: $unit_voltage
     device_class: "voltage"
@@ -27,9 +31,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 1
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_L2N
-    name: ${power_meter_name_1}-L2N
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_L2N
+    name: ${d<i>_power_meter_name}-L2N
     address: 0x0002
     unit_of_measurement: $unit_voltage
     device_class: "voltage"
@@ -38,9 +42,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 1
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_L3N
-    name: ${power_meter_name_1}-L3N
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_L3N
+    name: ${d<i>_power_meter_name}-L3N
     address: 0x0004
     unit_of_measurement: $unit_voltage
     device_class: "voltage"
@@ -50,9 +54,9 @@ sensor:
     accuracy_decimals: 1
 # ---------------------------- Phase current ---------------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_I1
-    name: ${power_meter_name_1}-I1
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_I1
+    name: ${d<i>_power_meter_name}-I1
     address: 0x0006
     unit_of_measurement: $unit_current
     device_class: "current"
@@ -61,9 +65,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_I2
-    name: ${power_meter_name_1}-I2
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_I2
+    name: ${d<i>_power_meter_name}-I2
     address: 0x0008
     unit_of_measurement: $unit_current
     device_class: "current"
@@ -72,9 +76,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_I3
-    name: ${power_meter_name_1}-I3
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_I3
+    name: ${d<i>_power_meter_name}-I3
     address: 0x000A
     unit_of_measurement: $unit_current
     device_class: "current"
@@ -84,9 +88,9 @@ sensor:
     accuracy_decimals: 3
 # ---------------------------- Phase active power ----------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_P1
-    name: ${power_meter_name_1}-P1
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_P1
+    name: ${d<i>_power_meter_name}-P1
     address: 0x000C
     unit_of_measurement: $unit_power_active
     device_class: "power"
@@ -95,9 +99,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_P2
-    name: ${power_meter_name_1}-P2
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_P2
+    name: ${d<i>_power_meter_name}-P2
     address: 0x000E
     unit_of_measurement: $unit_power_active
     device_class: "power"
@@ -106,9 +110,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_P3
-    name: ${power_meter_name_1}-P3
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_P3
+    name: ${d<i>_power_meter_name}-P3
     address: 0x0010
     unit_of_measurement: $unit_power_active
     device_class: "power"
@@ -118,9 +122,9 @@ sensor:
     accuracy_decimals: 3
 # ---------------------------- Phase apparent power --------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_S1
-    name: ${power_meter_name_1}-S1
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_S1
+    name: ${d<i>_power_meter_name}-S1
     address: 0x0012
     unit_of_measurement: $unit_power_apparent
     device_class: "apparent_power"
@@ -129,9 +133,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_S2
-    name: ${power_meter_name_1}-S2
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_S2
+    name: ${d<i>_power_meter_name}-S2
     address: 0x0014
     unit_of_measurement: $unit_power_apparent
     device_class: "apparent_power"
@@ -140,9 +144,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_S3
-    name: ${power_meter_name_1}-S3
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_S3
+    name: ${d<i>_power_meter_name}-S3
     address: 0x0016
     unit_of_measurement: $unit_power_apparent
     device_class: "apparent_power"
@@ -152,9 +156,9 @@ sensor:
     accuracy_decimals: 3
 # ---------------------------- Phase reactive power --------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_Q1
-    name: ${power_meter_name_1}-Q1
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_Q1
+    name: ${d<i>_power_meter_name}-Q1
     address: 0x0018
     unit_of_measurement: $unit_power_reactive
     device_class: "reactive_power"
@@ -163,9 +167,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_Q2
-    name: ${power_meter_name_1}-Q2
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_Q2
+    name: ${d<i>_power_meter_name}-Q2
     address: 0x001A
     unit_of_measurement: $unit_power_reactive
     device_class: "reactive_power"
@@ -174,9 +178,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 3
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_Q3
-    name: ${power_meter_name_1}-Q3
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_Q3
+    name: ${d<i>_power_meter_name}-Q3
     address: 0x001C
     unit_of_measurement: $unit_power_reactive
     device_class: "reactive_power"
@@ -186,9 +190,9 @@ sensor:
     accuracy_decimals: 3
 # ---------------------------- Phase voltage LL ------------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_L12
-    name: ${power_meter_name_1}-L12
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_L12
+    name: ${d<i>_power_meter_name}-L12
     address: 0x00C8
     unit_of_measurement: $unit_voltage
     device_class: "voltage"
@@ -197,9 +201,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 1
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_L23
-    name: ${power_meter_name_1}-L23
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_L23
+    name: ${d<i>_power_meter_name}-L23
     address: 0x00CA
     unit_of_measurement: $unit_voltage
     device_class: "voltage"
@@ -208,9 +212,9 @@ sensor:
     value_type: FP32
     accuracy_decimals: 1
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_L31
-    name: ${power_meter_name_1}-L31
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_L31
+    name: ${d<i>_power_meter_name}-L31
     address: 0x00CC
     unit_of_measurement: $unit_voltage
     device_class: "voltage"
@@ -220,9 +224,9 @@ sensor:
     accuracy_decimals: 1
 # ---------------------------- Neutral current -------------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_IN
-    name: ${power_meter_name_1}-IN
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_IN
+    name: ${d<i>_power_meter_name}-IN
     address: 0x00E0
     unit_of_measurement: $unit_current
     device_class: "current"

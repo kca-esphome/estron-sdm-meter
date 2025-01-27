@@ -4,20 +4,25 @@
 #
 # vars:
 #
-#   - modbus_controller_id
-#   - power_meter_id
-#   - power_meter_name
+#   - d<i>_modbus_controller_id
+#   - d<i>_power_meter_id
+#   - d<i>_power_meter_name
 #
+#VARS::
+substitutions:
+  modbus_controller_id: d<i>_modbus_controller_id
+  power_meter_id: d<i>_power_meter_id
+  power_meter_name: d<i>_power_meter_name
 
+<<: !include ../units_estron.yaml 
 
-<<: !include ../units.yaml 
 
 sensor:
 # ---------------------------- Total 3-phase ---------------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_P
-    name: "${power_meter_name_1}-P"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_P
+    name: "${d<i>_power_meter_name}-P"
     address: 0x0034
     register_type: read
     value_type: FP32
@@ -26,9 +31,9 @@ sensor:
     device_class: "power"
     state_class: "measurement"
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_S
-    name: "${power_meter_name_1}-S"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_S
+    name: "${d<i>_power_meter_name}-S"
     address: 0x0038
     register_type: read
     value_type: FP32
@@ -37,9 +42,9 @@ sensor:
     device_class: "apparent_power"
     state_class: "measurement"
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_Q
-    name: "${power_meter_name_1}-Q"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_Q
+    name: "${d<i>_power_meter_name}-Q"
     address: 0x003C
     register_type: read
     value_type: FP32
@@ -48,9 +53,9 @@ sensor:
     device_class: "reactive_power"
     state_class: "measurement"
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_f
-    name: "${power_meter_name_1}-f"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_f
+    name: "${d<i>_power_meter_name}-f"
     address: 0x0046
     unit_of_measurement: ${unit_frequency}
     device_class: "frequency"
@@ -60,9 +65,9 @@ sensor:
     accuracy_decimals: 2
 # ---------------------------- Energy Import/Export --------------------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_Eactive_import
-    name: "${power_meter_name_1}-Eactive_import"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_Eactive_import
+    name: "${d<i>_power_meter_name}-Eactive_import"
     address: 0x0048
     register_type: read
     value_type: FP32
@@ -73,9 +78,9 @@ sensor:
     filters:
       - multiply: 1000
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_Eactive_export
-    name: "${power_meter_name_1}-Eactive_export"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_Eactive_export
+    name: "${d<i>_power_meter_name}-Eactive_export"
     address: 0x004A
     register_type: read
     value_type: FP32
@@ -87,9 +92,9 @@ sensor:
       - multiply: 1000
 # ---------------------------- Energy Active/Reactive (resetable) ------
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_Eactive_resetable
-    name: "${power_meter_name_1}-Eactive_resetable"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_Eactive_resetable
+    name: "${d<i>_power_meter_name}-Eactive_resetable"
     address: 0x0180
     register_type: read
     value_type: FP32
@@ -100,9 +105,9 @@ sensor:
     filters:
       - multiply: 1000
   - platform: modbus_controller
-    modbus_controller_id: ${modbus_controller_id_1}
-    id: ${power_meter_id_1}_system_Ereactive_resetable
-    name: "${power_meter_name_1}-Ereactive_resetable"
+    modbus_controller_id: ${d<i>_modbus_controller_id}
+    id: ${d<i>_power_meter_id}_system_Ereactive_resetable
+    name: "${d<i>_power_meter_name}-Ereactive_resetable"
     address: 0x0182
     register_type: read
     value_type: FP32
